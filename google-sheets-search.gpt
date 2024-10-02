@@ -1,0 +1,15 @@
+Name: Google Sheets - Search
+Description: Searches for a Google Sheet Spreadsheet by name
+Params: name: The partial or full name of the spreadsheet to search for
+Share Tools: github.com/gptscript-ai/tools/apis/google/sheets/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the Google Sheets listSpreadsheets tool to find the spreadsheet specified within these <input> tags: <input>${NAME}</input>.
+Remember the ID of this spreadsheet, but only return the full name to the user.
+
+EOF
+

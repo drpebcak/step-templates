@@ -1,0 +1,14 @@
+name: Google Sheets - Write a Row
+description: Write a row to a Google Sheet
+params: URL: The URL of the Google Sheet
+params: Data: Describe the data you want to write to the Google Sheet
+share tool: github.com/gptscript-ai/tools/apis/google/sheets/write
+type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Access the Google Sheet at the following URL: ${URL}. First, read the sheet to understand the column structure and existing data format. Then, append a new row using the provided data: ${DATA}. To ensure accurate entry, wrap each cell value in double quotes before writing to the sheet. Confirm that the row aligns correctly with the column headers.
+
+EOF

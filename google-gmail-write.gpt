@@ -1,0 +1,19 @@
+Name: Google Gmail - Write Email
+Description: Writes an email using the user's Gmail account
+Params: recipient: A list of email addresses to use as recipients for the email
+Params: subject: The text to use as the subject line of the email
+Params: message: The text to use as the body of the email
+Share Tools: github.com/gptscript-ai/tools/apis/google/gmail/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the Google Gmail tools to send an email using the following inputs:
+Extract lists of to, cc, and bcc email addresses from within these <input> tags: <input>${RECIPIENT}</input>. If <input>${RECIPIENT}</input> is empty, use your history to identify the most relevant addresses to use. Do not cc or bcc anyone if <input>${RECIPIENT}</input> is empty.
+Use the following subject line from within these <input> tags: <input>${SUBJECT}</input>. If <input>${SUBJECT}</input> is empty, create the subject using a brief summarization of the email message.
+Extract the text specificed within these <input> tags: <input>${MESSAGE}</input>. If <input>${MESSAGE}</input> is empty, use your history to compose an email containing the most relevant information that matches the subject.
+
+EOF
+

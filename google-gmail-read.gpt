@@ -1,0 +1,16 @@
+Name: Google Gmail - Read Email
+Description: Read an email in user's Gmail account
+Params: email: A description of the email to read
+Share Tools: github.com/gptscript-ai/tools/apis/google/gmail/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the Google Gmail tools to find the email specified within these <input> tags: <input>${EMAIL}</input>.
+If the <input>${EMAIL}</input> is empty, refer to your history to select the most relevant email to use.
+Read the email and display the results.
+
+EOF
+

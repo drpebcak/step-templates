@@ -1,0 +1,15 @@
+Name: Google Gmail - Search Email
+Description: Searches for an email in user's Gmail account
+Params: search: A description of the search terms to search by
+Share Tools: github.com/gptscript-ai/tools/apis/google/gmail/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the Google Gmail tools to search for emails using the criteria specified within these <input> tags: <input>${SEARCH}</input>.
+Show the user the list of results, but omit the IDs.
+
+EOF
+
