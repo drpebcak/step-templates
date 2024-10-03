@@ -1,0 +1,26 @@
+Name: HubSpot - CRM Task Create or Update
+Description: Create New or Update Existing HubSpot CRM Task
+Params: task: A description of the task. Should include at minimum a title, type, and priority. Optionally can include fields like due date, reminder, notes, etc. It can also include Contacts, Companies, Tickets, other Tasks, Deals, etc that are associated with it.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Extract task information from within these <input> tags: <input>${TASK}</input>.
+Use the HubSpot CRM tools to search for an existing Task that matches the provided title. 
+If a Task is found, update it with the information extracted from the <input> tags.
+If no Task is found, create a new one with the information extracted from the <input> tags.
+
+
+Task Type field can be one of the following values: Call, Email, or To-do.
+Priority field can be blank OR one of the following values: Low, Medium, or High.
+
+Fields that do not match the HubSpot Task schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+If it is mentioned that the task is assigned to someone, look that person up using the Owner tools - `GetPageOfOwners` and `GetOwnerById`
+If it is mentioned that the Task is related to specific Companies, Contacts(people - by full name or email), other Tasks, Tickets, Deals, or other HubSpot resources, look up those resources in HubSpot and try to Associate the Task with them.
+
+Let the user know if you have updated or created a Task, and display the Task details.
+
+EOF

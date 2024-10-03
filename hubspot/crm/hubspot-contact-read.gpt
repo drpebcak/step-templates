@@ -1,0 +1,16 @@
+Name: HubSpot - CRM Contact Read
+Description: Find and Read HubSpot CRM Contact Details
+Params: contact: A description of the contact to find - can include things like name, email address, or company.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the contact specified within these <input> tags: <input>${CONTACT}</input>.
+If the <input>${CONTACT}</input> is empty, refer to your history to select the most relevant contact to search for.
+Display the contact details as well as any additional properties found from the `GetProperty*` tools.
+
+EOF
+

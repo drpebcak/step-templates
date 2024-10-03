@@ -1,0 +1,16 @@
+Name: HubSpot - CRM List Read
+Description: Find and Read HubSpot CRM List Details
+Params: list: A description of the List to find - can include things like name or creator. It can also include owner, created date, etc.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the List specified within these <input> tags: <input>${LIST}</input>.
+If the <input>${LIST}</input> is empty, refer to your history to select the most relevant List to search for.
+Display the List details as well as any additional properties found from the `GetProperty*` tools.
+
+EOF
+

@@ -1,0 +1,20 @@
+Name: HubSpot - CRM Deal Create or Update
+Description: Create New or Update Existing HubSpot CRM Deal
+Params: deal: A description of the Deal. Should include at minimum a name. Can also contain things like an owner, stage, dollar amount, close date, priority, deal type, associated contacts, companies, other deals, etc.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Extract deal information from within these <input> tags: <input>${DEAL}</input>.
+Use the HubSpot CRM tools to search for an existing Deal with a matching name.
+If a Deal is found, update it with the information extracted from the <input> tags.
+If no Deal is found, create a new one with the information extracted from the <input> tags.
+Fields that do not match the HubSpot Deal schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+If it is mentioned that the Deal is related to specific Companies or Contacts(people - by full name or email), look up those Company and/or Contact resources in HubSpot and try to Associate the Deal with them.
+
+Let the user know if you have updated or created a Deal, and display the Deal details.
+
+EOF

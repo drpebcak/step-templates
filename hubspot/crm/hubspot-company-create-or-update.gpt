@@ -1,0 +1,20 @@
+Name: HubSpot - CRM Company Create or Update
+Description: Create New or Update Existing HubSpot CRM Company
+Params: contact: A description of the company. Should include at minimum a name. Can also contain website domain, phone number, etc.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Extract company information from within these <input> tags: <input>${COMPANY}</input>.
+Use the HubSpot CRM tools to search for an existing Company with a matching name, ignoring capitalization and punctuation.
+If a Company is found, update it with the information extracted from the <input> tags.
+If no Company is found, create a new one with the information extracted from the <input> tags.
+Fields that do not match the HubSpot Company schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+
+Let the user know if you have updated or created a Company, and display the Company details.
+
+EOF
+

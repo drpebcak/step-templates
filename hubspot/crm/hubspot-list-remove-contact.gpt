@@ -1,0 +1,21 @@
+Name: HubSpot - CRM Remove Contact From List
+Description: HubSpot CRM Remove Contact From List
+Params: list: A description of the List to find - can include things like name or creator. It can also include owner, created date, etc.
+Params: contact: A description of the contact to find - can include things like name, email address, or company.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the List specified within these <input> tags: <input>${LIST}</input>.
+If the <input>${LIST}</input> is empty, refer to your history to select the most relevant List to search for.
+
+Use the HubSpot CRM tools to find the contact specified within these <input> tags: <input>${CONTACT}</input>.
+If the <input>${CONTACT}</input> is empty, refer to your history to select the most relevant Contact to search for.
+
+Use the HubSpot CRM tools to remove the Contact you found to the list that you found. If the Contact is already not in the list, let the user know.
+Display information about the actions you took to the user.
+
+EOF

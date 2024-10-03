@@ -1,0 +1,26 @@
+Name: HubSpot - CRM Ticket Create or Update
+Description: Create New or Update Existing HubSpot CRM Ticket
+Params: ticket: A description of the ticket. Should include at minimum a name and description. Optionally can include fields like pipeline, priority, creation date, ticket status, ticket source. It can also include Contacts, Companies, other Tickets, Deals, Ticket Owner, etc that are associated with it.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Extract ticket information from within these <input> tags: <input>${TICKET}</input>.
+Use the HubSpot CRM tools to search for an existing Ticket that matches the provided name. 
+If a Ticket is found, update it with the information extracted from the <input> tags.
+If no Ticket is found, create a new one with the information extracted from the <input> tags.
+
+
+Ticket Status field can be one of the following values: New, Waiting on contact, Waiting on us, or Closed.
+Source field can be blank OR one of the following values: Chat, Email, Form, or Phone.
+Priority field can be blank OR one of the following values: Low, Medium, or High.
+
+Fields that do not match the HubSpot Ticket schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+If it is mentioned that the Ticket is related to specific Companies, Contacts(people - by full name or email), other Tickets, Deals, Owners, or other HubSpot resources, look up those resources in HubSpot and try to Associate the Ticket with them.
+
+Let the user know if you have updated or created a Ticket, and display the Ticket details.
+
+EOF

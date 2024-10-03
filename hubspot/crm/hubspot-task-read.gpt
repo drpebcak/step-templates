@@ -1,0 +1,16 @@
+Name: HubSpot - CRM Task Read
+Description: Find and Read HubSpot CRM Task Details
+Params: task: A description of the Task to find - can include things like title or type. It can also include assignee, due date, status, etc.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the Task specified within these <input> tags: <input>${TASK}</input>.
+If the <input>${TASK}</input> is empty, refer to your history to select the most relevant Task to search for.
+Display the Task details as well as any additional properties found from the `GetProperty*` tools.
+
+EOF
+

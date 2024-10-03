@@ -1,0 +1,23 @@
+Name: HubSpot - CRM Contact Engagement Create or Update
+Description: Create New or Update Existing HubSpot CRM Engagement On An Existing Contact
+Params: contact: A description of the contact to find - can include things like name, email address, or company.
+Params: engagement: A description of the engagement to look for: the type should be one of email, note, call, or meeting.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the contact specified within these <input> tags: <input>${CONTACT}</input>.
+If the <input>${CONTACT}</input> is empty, refer to your history to select the most relevant contact to search for.
+Display the contact details as well as any additional properties found from the `GetProperty*` tools.
+
+Extract details of the Engagement to look for from within these <input tags: <input>${ENGAGEMENT}</input>.
+Use the HubSpot CRM tools to look up and display matching Engagements that are associated with this Contact.
+If an Engagement is found, update it with the information extracted from the <input> tags.
+If no Engagement is found, create a new one with the information extracted from the <input> tags.
+Fields that do not match the HubSpot Deal schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+If a new Engagement is being created, check to see if the Associated Contact is Associated with a Company. If it is, ensure that the Engagement is being Associated with both the Contact AND the Company.
+
+EOF

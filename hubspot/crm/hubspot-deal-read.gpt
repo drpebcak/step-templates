@@ -1,0 +1,16 @@
+Name: HubSpot - CRM Deal Read
+Description: Find and Read HubSpot CRM Deal Details
+Params: deal: A description of the Deal to find - can include things like name, dollar amount, deal owner, close date, etc. It can also include Contacts, Companies, Tickets, other Deals, etc that are associated with it.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/read
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the HubSpot CRM tools to find the Deal specified within these <input> tags: <input>${DEAL}</input>.
+If the <input>${DEAL}</input> is empty, refer to your history to select the most relevant Deal to search for.
+Display the Deal details as well as any additional properties found from the `GetProperty*` tools.
+
+EOF
+

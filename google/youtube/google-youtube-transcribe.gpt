@@ -1,0 +1,18 @@
+Name: YouTube - Transcribe Video
+Description: Transcribes a YouTube video to text
+Params: url: The url of a youtube video
+Share Tools: github.com/gptscript-ai/tools/apis/google/youtube/read
+Tools: sys.write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Use the YouTube tools to transcribe the video specified within these <input> tags: <input>${URL}</input>.
+If the <input>${URL}</input> is empty, refer to your history to select the most relevant youtube video to use.
+
+Return the location of the file and the summary to the user, as well as a link to the youtube video.
+
+EOF
+

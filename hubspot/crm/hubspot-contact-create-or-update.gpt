@@ -1,0 +1,21 @@
+Name: HubSpot - CRM Contact Create or Update
+Description: Create New or Update Existing HubSpot CRM Contact
+Params: contact: A description of the contact. Should include at minimum a name and email address. Can also contain company, phone number, etc.
+Share Tools: github.com/gptscript-ai/tools/apis/hubspot/crm/write
+Type: input
+
+#!/bin/env bash
+
+cat << EOF
+
+Extract contact information from within these <input> tags: <input>${CONTACT}</input>.
+Use the HubSpot CRM tools to search for an existing Contact with a matching email address.
+If a Contact is found, update it with the information extracted from the <input> tags.
+If no Contact is found, create a new one with the information extracted from the <input> tags.
+Fields that do not match the HubSpot Contact schema can be added or updated using the `CreateProperty*` and `UpdateProperty*` tools respectively.
+If it is mentioned that they work for a specific company, Look up that Company resource in HubSpot and try to Associate the Contact with it.
+
+Let the user know if you have updated or created a Contact, and display the Contact details.
+
+EOF
+
