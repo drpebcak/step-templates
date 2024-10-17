@@ -3,7 +3,7 @@ Description: Writes an email using the user's Gmail account
 Params: recipient: A list of email addresses to use as recipients for the email
 Params: subject: The text to use as the subject line of the email
 Params: message: The text to use as the body of the email
-Share Tools: github.com/gptscript-ai/tools/apis/google/gmail/write
+Share Tools: github.com/otto8-ai/tools/google/gmail
 Type: input
 
 #!/bin/env bash

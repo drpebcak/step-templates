@@ -2,7 +2,7 @@ name: Google Sheets - Write a Row
 description: Write a row to a Google Sheet
 params: URL: The URL of the Google Sheet
 params: Data: Describe the data you want to write to the Google Sheet
-share tool: github.com/gptscript-ai/tools/apis/google/sheets/write
+share tool: github.com/otto8-ai/tools/google/sheets
 type: input
 
 #!/bin/env bash

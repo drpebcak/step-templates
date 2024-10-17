@@ -1,7 +1,7 @@
 Name: Google Sheets - Convert to Markdown
 Description: Generate a markdown table from a Google Sheets Spreadsheet
 Params: spreadsheet: Name, ID, or link to the Google Sheet Spreadsheet to convert
-Share Tools: github.com/gptscript-ai/tools/apis/google/sheets/read
+Share Tools: github.com/otto8-ai/tools/google/sheets
 Type: input
 
 #!/bin/env bash

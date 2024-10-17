@@ -1,7 +1,7 @@
 Name: Google Sheets - Search
 Description: Searches for a Google Sheet Spreadsheet by name
 Params: name: The partial or full name of the spreadsheet to search for
-Share Tools: github.com/gptscript-ai/tools/apis/google/sheets/read
+Share Tools: github.com/otto8-ai/tools/google/sheets
 Type: input
 
 #!/bin/env bash

@@ -1,7 +1,7 @@
 Name: Google Gmail - Read Email
 Description: Read an email in user's Gmail account
 Params: email: A description of the email to read - can include things like subject, sender, text from the contents of the email, etc.
-Share Tools: github.com/gptscript-ai/tools/apis/google/gmail/read
+Share Tools: github.com/otto8-ai/tools/google/gmail
 Type: input
 
 #!/bin/env bash

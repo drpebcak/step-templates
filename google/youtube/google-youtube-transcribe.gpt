@@ -1,7 +1,7 @@
 Name: YouTube - Transcribe Video
 Description: Transcribes a YouTube video to text
 Params: url: The url of a youtube video
-Share Tools: github.com/gptscript-ai/tools/apis/google/youtube/read
+Share Tools: Transcribe Youtube Video from github.com/otto8-ai/tools/google/youtube
 Tools: sys.write
 Type: input
 
